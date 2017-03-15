@@ -1,3 +1,5 @@
+<properties title="" pageTitle="Changes to C# Test Framework NuGet" description="" authors="" />
+
 ## NOTICE: Changes to C# Test Framework NuGet
 
 ### What

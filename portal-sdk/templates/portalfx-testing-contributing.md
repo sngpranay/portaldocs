@@ -1,4 +1,6 @@
-## Contributing
+<properties title="" pageTitle="Contributing to C# Test Framework" description="" authors="" />
+
+## Contributing to C# Test Framework
 
 Contributions that improve the Test Framework are welcome as they keep the code base healthy.  If you have improvements you wish to contribute back to the Test Framework, see below for steps on enlisting and submitting a pull request.  Please note that this is currently only available to Microsft employees.
 
