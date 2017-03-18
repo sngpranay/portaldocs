@@ -6,19 +6,19 @@
 * [Other](#other)
 
 
- * [Getting Started](.\portalfx-howitworks.md#getting-started)
-    * [How the portal works](.\portalfx-howitworks.md#how-the-portal-works)
-    * [How extensions work](.\portalfx-howitworks.md#how-extensions-work)
-        * [What's different?](.\portalfx-howitworks.md#what-s-different)
+ * [Getting Started](portalfx-howitworks.md#getting-started)
+    * [How the portal works](portalfx-howitworks.md#how-the-portal-works)
+    * [How extensions work](portalfx-howitworks.md#how-extensions-work)
+        * [What's different?](portalfx-howitworks.md#what-s-different)
 
-* [Getting started with the Portal SDK](.\portalfx-creating-extensions.md#getting-started-with-the-portal-sdk)
-    * [Prerequisites](.\portalfx-creating-extensions.md#prerequisites)
-    * [Creating an Extension](.\portalfx-creating-extensions.md#creating-an-extension)
-    * [Marketplace Gallery Integration and Create Experience](.\portalfx-creating-extensions.md#marketplace-gallery-integration-and-create-experience)
-    * [Browse](.\portalfx-creating-extensions.md#browse)
-    * [Resource Menu](.\portalfx-creating-extensions.md#resource-menu)
-    * [Next Steps](.\portalfx-creating-extensions.md#next-steps)
-    * [Questions?](.\portalfx-creating-extensions.md#questions)
+* [Getting started with the Portal SDK](portalfx-creating-extensions.md#getting-started-with-the-portal-sdk)
+    * [Prerequisites](portalfx-creating-extensions.md#prerequisites)
+    * [Creating an Extension](portalfx-creating-extensions.md#creating-an-extension)
+    * [Marketplace Gallery Integration and Create Experience](portalfx-creating-extensions.md#marketplace-gallery-integration-and-create-experience)
+    * [Browse](portalfx-creating-extensions.md#browse)
+    * [Resource Menu](portalfx-creating-extensions.md#resource-menu)
+    * [Next Steps](portalfx-creating-extensions.md#next-steps)
+    * [Questions?](portalfx-creating-extensions.md#questions)
 
 * [Samples extension](.\portalfx-sample-extensions.md#samples-extension)
 
