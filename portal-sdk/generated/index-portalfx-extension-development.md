@@ -6,7 +6,6 @@
 * [Other](#other)
 
 
- <h1 name="portalfx-extension-development"></h1>
  * [Getting Started](.\portalfx-howitworks.md#getting-started)
     * [How the portal works](.\portalfx-howitworks.md#how-the-portal-works)
     * [How extensions work](.\portalfx-howitworks.md#how-extensions-work)
