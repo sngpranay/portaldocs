@@ -49,17 +49,24 @@ gulp.task('portal', function () {
             return file.endsWith(".md");
         });
     
-        return dirs.map(function (f) {
+        var filePromises = dirs.map(function (f) {
             var relativePath = f.replace(templatesDir, "");
             var newGeneratedDir = path.join(generatedDir, path.dirname(relativePath));
             
             if (!fs.existsSync(newGeneratedDir)){
                 fs.mkdirSync(newGeneratedDir);
             }
-
-            var filePromises = gulpCommon.processFile(f, newGeneratedDir, {}, true);
-            return Q.all(filePromises)
+            
+            if (path.basename(f).startsWith("index")) {
+                // TODO generate Table of Contents only for index files
+                return gulpCommon.processFile(f, newGeneratedDir, {}, true);
+            }
+            else {
+                return gulpCommon.processFile(f, newGeneratedDir, {}, true);
+            }
         });
+        
+        return Q.all(filePromises);
     });
 });
 

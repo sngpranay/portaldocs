@@ -12,6 +12,7 @@ if(fs.existsSync(utilFilePath)) {
 }
 
 var gitdownIncludeHelper = require('gitdown/dist/helpers/include.js');
+var gitdownContentHelper = require('gitdown/dist/helpers/contents.js');
 var fs = require('fs');
 var gitdown = require('gitdown');
 var path = require('path');
@@ -22,6 +23,7 @@ var chalk = require('chalk');
 var urlExt = require('url-extractor');
 var findup = require('findup');
 var gitPath = findup.sync(process.cwd(), '.git\\HEAD');
+var MarkdownContents = require('markdown-contents');
 
 var self = module.exports = {
     /**
@@ -68,7 +70,52 @@ var self = module.exports = {
             weight: 10,
             compile: self.includeSection
         });
+        
+        gd.registerHelper('include-headings', {
+            weight: 30,
+            compile: self.includeHeadings
+        });
         return gd.writeFile(path.resolve(outDir, path.basename(inputFile)));
+    },
+    includeHeadings: function (config, context) {
+        console.log("include headings");
+        if (!config.file) {
+            throw new Error('config.file must be provided');
+        }
+        
+        var fullFilePath = path.resolve(context.gitdown.getConfig().baseDirectory, config.file);
+        var relativeFilePath = fullFilePath.replace(context.gitdown.getConfig().baseDirectory, "");
+        
+        if (!fs.existsSync(fullFilePath)) {
+            throw new Error('Input file does not exist: ' + config.file);
+        }
+        
+        var content = fs.readFileSync(fullFilePath, {
+            encoding: 'utf8'
+        });
+        
+        // console.log ("Relative file is " + relativeFilePath);
+        // console.log("File is " + fullFilePath);
+        
+        var tree = MarkdownContents(content).tree();
+        //console.log("String tree \r\n" + JSON.stringify(tree));
+        
+        var output = MarkdownContents.treeToMarkdown(tree);
+        
+        try {
+            output = self.updateIndexLinks(output, "." + relativeFilePath);
+        } catch (err) {
+            console.log ("An error occured: " + err);
+        }
+        
+        console.log("Output is \r\n" + output);
+        return output;
+    },
+    updateIndexLinks: function (markdown, filePath) {
+        var regex = new RegExp(']\\(#', 'g');
+        markdown = markdown.replace(regex, '](' + filePath + '#');
+        console.log("updated markdown " + markdown);
+        return markdown;
     },
     /**
      * Extending gitdown to provide code snippet injection. 
